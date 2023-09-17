@@ -1,0 +1,17 @@
+name: Main test workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  logBranchName:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/request-action@v2.x
+        id: main_test
+        with:
+          route: GET /repos/{owner}/{repo}/branches/{branch}
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+      - run: "echo latest release: '${{ steps.main_test.outputs.data }}'"
