@@ -12,7 +12,7 @@ export async function action({ request }) {
       {
         owner: "christophersesugh",
         repo: "react-test-app",
-        workflow_id: "main.yml",
+        workflow_id: "reusable",
         ref: "main",
         inputs: {
           framework: input,
@@ -33,7 +33,7 @@ export async function action({ request }) {
 export default function Index() {
   const data = useActionData();
   const fetcher = useFetcher();
-  console.log(data);
+  console.log(data?.error);
   return (
     <main className="flex flex-col mx-auto max-w-2xl h-screen place-content-center bg-slate-100">
       <h1 className="text-2xl text-blue-500 text-center">GitHub Actions</h1>
