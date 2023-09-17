@@ -1,19 +1,17 @@
-name: Main test workflow
+name: Main Workflow
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  logBranchName:
+  main-job:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: octokit/request-action@v2.x
-        id: main_test
-        with:
-          route: GET /repos/{owner}/{repo}/branches/{branch}
-          mediaType: | # The | is significant!
-            format: raw
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo latest release: '${{ steps.main_test.outputs.data }}'"
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Run Reusable Workflow
+        uses: ./reusable.yml # Path to the reusable workflow file

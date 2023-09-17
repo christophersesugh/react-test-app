@@ -1,0 +1,14 @@
+name: My Reusable Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  reusable-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Message
+        run: echo "This is the reusable workflow."
