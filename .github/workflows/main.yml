@@ -1,12 +1,14 @@
 name: Main Workflow
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      framework:
+        description: "Framework name"
+        required: true
 
 jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/reusable.yml
     with:
-      framework: remix
+      framework: ${{ inputs.framework }}
