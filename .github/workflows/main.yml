@@ -13,5 +13,5 @@ jobs:
         with:
           route: GET /repos/{owner}/{repo}/branches/{branch}
         env:
-          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo latest release: '${{ steps.main_test.outputs.data }}'"
