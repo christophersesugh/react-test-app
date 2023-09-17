@@ -1,5 +1,5 @@
 import React from "react";
-import { useFetcher } from "react-router-dom";
+import { json, useActionData, useFetcher } from "react-router-dom";
 import { octokit } from "../octokit";
 
 export async function action({ request }) {
@@ -23,14 +23,17 @@ export async function action({ request }) {
       }
     );
     console.log(response);
+    return json({ response });
   } catch (error) {
     console.log(error);
+    return json({ error });
   }
-  return null;
 }
 
 export default function Index() {
+  const data = useActionData();
   const fetcher = useFetcher();
+  console.log(data);
   return (
     <main className="flex flex-col mx-auto max-w-2xl h-screen place-content-center bg-slate-100">
       <h1 className="text-2xl text-blue-500 text-center">GitHub Actions</h1>
