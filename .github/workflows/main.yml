@@ -11,7 +11,7 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: main_test
         with:
-          route: GET /repos/{owner}/{repo}/branches/{branch}
+          route: GET /repos/{owner}/{repo}/branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo latest release: '${{ steps.main_test.outputs.data }}'"
