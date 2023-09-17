@@ -1,10 +1,11 @@
-name: main-workflow
+name: Main Workflow
 
 on:
   workflow_dispatch:
     inputs:
       framework:
-        description: "Framework name"
+        description: Framework name
+        required: true
 
 jobs:
   call-reusable-workflow:

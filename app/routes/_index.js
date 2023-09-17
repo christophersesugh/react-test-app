@@ -12,7 +12,7 @@ export async function action({ request }) {
       {
         owner: "christophersesugh",
         repo: "react-test-app",
-        workflow_id: "reusable",
+        workflow_id: "main-workflow",
         ref: "main",
         inputs: {
           framework: input,
