@@ -6,12 +6,7 @@ on:
       - main
 
 jobs:
-  main-job:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Run Reusable Workflow
-        uses: ./reusable.yml # Path to the reusable workflow file
+  call-reusable-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      framework: remix
